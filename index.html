@@ -1,219 +1,602 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>فیلم‌خانه</title>
+
+  <title>PhotoGallery | گالری عکس</title>
+
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
-      background: #0b0b0f;
-      color: white;
+      padding: 0;
       font-family: Tahoma, Arial, sans-serif;
-      .search-box {
-  display: flex;
-  gap: 10px;
-  max-width: 700px;
-  margin: 25px auto;
-  padding: 0 20px;
-}
-
-.search-box input {
-  flex: 1;
-  padding: 14px;
-  border: none;
-  border-radius: 8px;
-  background: #1c1c24;
-  color: white;
-  font-size: 15px;
-}
-
-.search-box button {
-  padding: 14px 22px;
-  border: none;
-  border-radius: 8px;
-  background: #00c896;
-  color: #000;
-  font-weight: bold;
-} 
     }
 
+    body {
+      background: #f5f6fa;
+      color: #222;
+    }
+
+    /* هدر */
     header {
-      background: #15151b;
-      padding: 20px;
-      text-align: center;
+      background: #111827;
+      color: white;
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
     }
 
     .logo {
-      color: #00c896;
-      font-size: 28px;
+      font-size: 24px;
       font-weight: bold;
+      white-space: nowrap;
     }
 
+    .logo span {
+      color: #8b5cf6;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #a78bfa;
+    }
+
+    .upload-btn {
+      background: #7c3aed;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .upload-btn:hover {
+      background: #6d28d9;
+    }
+
+    /* بخش اصلی */
     .hero {
-      padding: 70px 20px;
+      min-height: 430px;
+      background:
+        linear-gradient(rgba(10, 15, 30, 0.72), rgba(10, 15, 30, 0.85)),
+        url("https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=80");
+
+      background-size: cover;
+      background-position: center;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
       text-align: center;
+      color: white;
+      padding: 40px 20px;
     }
 
     .hero h1 {
-      font-size: 38px;
+      font-size: 42px;
+      margin-bottom: 15px;
     }
 
     .hero p {
-      color: #aaa;
-      line-height: 2;
+      font-size: 17px;
+      margin-bottom: 30px;
+      color: #ddd;
     }
 
-    .button {
-      display: inline-block;
-      background: #00c896;
-      color: #000;
-      padding: 12px 25px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
+    /* جستجو */
+    .search-container {
+      width: 100%;
+      max-width: 650px;
     }
 
-    .movies {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-      padding: 20px;
+    .search-box {
+      width: 100%;
+      padding: 18px 25px;
+      border: none;
+      border-radius: 40px;
+      font-size: 16px;
+      outline: none;
     }
 
-    .movie {
-      background: #18181f;
-      border-radius: 10px;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .poster {
-      height: 180px;
-      background: #292933;
+    /* دسته بندی */
+    .categories {
       display: flex;
-      align-items: center;
+      gap: 10px;
+      margin-top: 25px;
+      flex-wrap: wrap;
       justify-content: center;
-      font-size: 50px;
-      border-radius: 8px;
-      overflow: hidden;
-      .poster img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-} 
     }
 
-    .movie h3 {
+    .category {
+      padding: 10px 18px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .category:hover,
+    .category.active {
+      background: #7c3aed;
+    }
+
+    /* محتوا */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 50px auto;
+    }
+
+    .section-title {
+      font-size: 26px;
+      margin-bottom: 25px;
+      border-right: 4px solid #7c3aed;
+      padding-right: 12px;
+    }
+
+    /* گالری */
+    .gallery {
+      columns: 3 280px;
+      column-gap: 18px;
+    }
+
+    .photo-card {
+      position: relative;
+      margin-bottom: 18px;
+      break-inside: avoid;
+      overflow: hidden;
+      border-radius: 15px;
+      cursor: pointer;
+      background: #ddd;
+    }
+
+    .photo-card img {
+      width: 100%;
+      display: block;
+      transition: 0.4s;
+    }
+
+    .photo-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .photo-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      padding: 40px 15px 15px;
+
+      background: linear-gradient(transparent, rgba(0,0,0,0.85));
+      color: white;
+
+      opacity: 0;
+      transition: 0.3s;
+    }
+
+    .photo-card:hover .photo-info {
+      opacity: 1;
+    }
+
+    .photo-info h3 {
+      font-size: 16px;
       margin-bottom: 5px;
     }
 
-    .movie p {
-      color: #999;
+    .photo-info span {
+      font-size: 13px;
+      color: #ddd;
     }
+
+    /* مودال نمایش عکس */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 1000;
+
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 85vh;
+      border-radius: 12px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 40px;
+      cursor: pointer;
+    }
+
+    /* فوتر */
+    footer {
+      background: #111827;
+      color: #aaa;
+      text-align: center;
+      padding: 30px;
+      margin-top: 50px;
+    }
+
+    /* موبایل */
+    @media (max-width: 700px) {
+
+      header {
+        padding: 15px 5%;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .logo {
+        font-size: 19px;
+      }
+
+      .upload-btn {
+        padding: 9px 12px;
+      }
+
+      .hero {
+        min-height: 400px;
+      }
+
+      .hero h1 {
+        font-size: 29px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .gallery {
+        columns: 2 150px;
+        column-gap: 10px;
+      }
+
+      .photo-card {
+        margin-bottom: 10px;
+      }
+    }
+
   </style>
 </head>
 
 <body>
 
+  <!-- هدر -->
   <header>
-    <div class="logo">فیلم‌خانه 🎬</div>
+
+    <div class="logo">
+      📷 Photo<span>Gallery</span>
+    </div>
+
+    <nav>
+      <a href="#">خانه</a>
+      <a href="#gallery">گالری</a>
+      <a href="#categories">دسته‌بندی‌ها</a>
+      <a href="#about">درباره ما</a>
+    </nav>
+
+    <button class="upload-btn">
+      ⬆ آپلود عکس
+    </button>
+
   </header>
-<div class="search-box">
-  <input type="text" id="searchInput" placeholder="نام فیلم یا سریال را جستجو کنید...">
-  <button onclick="searchMovies()">جستجو 🔍</button>
-</div>
+
+
+  <!-- بخش معرفی -->
   <section class="hero">
-    <h1>دنیای فیلم و سریال</h1>
-    <p>به سایت فیلم و سریال ما خوش آمدید.</p>
-    <a href="#movies" class="button">مشاهده فیلم‌ها</a>
+
+    <h1>دنیای خود را از دریچه دوربین ببینید</h1>
+
+    <p>
+      هزاران تصویر زیبا را کشف کنید و از دنیای عکاسی الهام بگیرید
+    </p>
+
+
+    <!-- جستجو -->
+    <div class="search-container">
+      <input
+        type="text"
+        id="searchInput"
+        class="search-box"
+        placeholder="🔍 جستجوی عکس..."
+        onkeyup="searchImages()"
+      >
+    </div>
+
+
+    <!-- دسته بندی -->
+    <div class="categories" id="categories">
+
+      <div class="category active" onclick="filterImages('all', this)">
+        همه
+      </div>
+
+      <div class="category" onclick="filterImages('nature', this)">
+        🌿 طبیعت
+      </div>
+
+      <div class="category" onclick="filterImages('city', this)">
+        🏙 شهر
+      </div>
+
+      <div class="category" onclick="filterImages('car', this)">
+        🚗 ماشین
+      </div>
+
+      <div class="category" onclick="filterImages('animal', this)">
+        🐾 حیوانات
+      </div>
+
+    </div>
+
   </section>
 
-  <section class="movies" id="movies">
 
-    <div class="movie" onclick="showMovie('سفر آخر')">
-      <div class="poster">
-  <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=500&q=80" alt="پوستر فیلم">
+  <!-- گالری -->
+  <main class="container" id="gallery">
+
+    <h2 class="section-title">جدیدترین عکس‌ها</h2>
+
+    <div class="gallery">
+
+
+      <div class="photo-card" data-category="nature">
+        <img
+          src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=700&q=80"
+          alt="طبیعت و کوهستان">
+
+        <div class="photo-info">
+          <h3>طبیعت و کوهستان</h3>
+          <span>❤️ 245 لایک</span>
+        </div>
       </div>
-      <h3>سفر آخر</h3>
-      <p>⭐ 8.5 | اکشن</p>
-    </div>
 
-    <div class="movie" onclick="showMovie('سایه‌های شب')">
-      <div class="poster">
-  <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=500&q=80" alt="پوستر فیلم">
+
+      <div class="photo-card" data-category="city">
+        <img
+          src="https://images.unsplash.com/photo-1444723121867-7a241cacace9?auto=format&fit=crop&w=700&q=80"
+          alt="شهر مدرن">
+
+        <div class="photo-info">
+          <h3>شهر مدرن</h3>
+          <span>❤️ 180 لایک</span>
+        </div>
       </div>
-      <h3>سایه‌های شب</h3>
-      <p>⭐ 8.1 | درام</p>
-    </div>
 
-    <div class="movie" onclick="showMovie('شهر خاموش')">
-      <div class="poster">
-  <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=500&q=80" alt="پوستر فیلم">
+
+      <div class="photo-card" data-category="car">
+        <img
+          src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=700&q=80"
+          alt="ماشین اسپرت">
+
+        <div class="photo-info">
+          <h3>ماشین اسپرت</h3>
+          <span>❤️ 320 لایک</span>
+        </div>
       </div>
-      <h3>شهر خاموش</h3>
-      <p>⭐ 7.9 | کمدی</p>
-    </div>
 
-    <div class="movie" onclick="showMovie('آخرین ماجرا')">
-      <div class="poster">
-  <img src="https://images.unsplash.com/photo-1518930259200-6aee7a5b3d6e?auto=format&fit=crop&w=500&q=80" alt="پوستر فیلم">
+
+      <div class="photo-card" data-category="animal">
+        <img
+          src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=700&q=80"
+          alt="حیوانات وحشی">
+
+        <div class="photo-info">
+          <h3>حیوانات وحشی</h3>
+          <span>❤️ 410 لایک</span>
+        </div>
       </div>
-      <h3>آخرین ماجرا</h3>
-      <p>⭐ 8.7 | ماجراجویی</p>
+
+
+      <div class="photo-card" data-category="nature">
+        <img
+          src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=700&q=80"
+          alt="کوهستان زیبا">
+
+        <div class="photo-info">
+          <h3>کوهستان زیبا</h3>
+          <span>❤️ 560 لایک</span>
+        </div>
+      </div>
+
+
+      <div class="photo-card" data-category="city">
+        <img
+          src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=700&q=80"
+          alt="خیابان شهر">
+
+        <div class="photo-info">
+          <h3>خیابان شهر</h3>
+          <span>❤️ 220 لایک</span>
+        </div>
+      </div>
+
+
+      <div class="photo-card" data-category="animal">
+        <img
+          src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=700&q=80"
+          alt="سگ دوست داشتنی">
+
+        <div class="photo-info">
+          <h3>دوست کوچک</h3>
+          <span>❤️ 370 لایک</span>
+        </div>
+      </div>
+
+
+      <div class="photo-card" data-category="nature">
+        <img
+          src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=700&q=80"
+          alt="دریاچه و طبیعت">
+
+        <div class="photo-info">
+          <h3>دریاچه آرام</h3>
+          <span>❤️ 620 لایک</span>
+        </div>
+      </div>
+
+
     </div>
+  </main>
 
-  </section>
-<script>
-function searchMovies() {
-  const searchText = document.getElementById("searchInput").value.toLowerCase();
-  const movies = document.querySelectorAll(".movie");
 
-  movies.forEach(function(movie) {
-    const title = movie.querySelector("h3").textContent.toLowerCase();
+  <!-- نمایش بزرگ عکس -->
+  <div class="modal" id="modal">
 
-    if (title.includes(searchText)) {
-      movie.style.display = "block";
-    } else {
-      movie.style.display = "none";
+    <span class="close">&times;</span>
+
+    <img id="modal-img" src="" alt="">
+
+  </div>
+
+
+  <!-- فوتر -->
+  <footer id="about">
+    © 2026 PhotoGallery | تمامی حقوق محفوظ است
+  </footer>
+
+
+  <script>
+
+    const cards = document.querySelectorAll(".photo-card");
+
+    const modal = document.getElementById("modal");
+
+    const modalImg = document.getElementById("modal-img");
+
+
+    /* باز کردن عکس */
+
+    cards.forEach(card => {
+
+      card.addEventListener("click", () => {
+
+        const image = card.querySelector("img");
+
+        modal.style.display = "flex";
+
+        modalImg.src = image.src;
+
+      });
+
+    });
+
+
+    /* بستن عکس */
+
+    document.querySelector(".close").onclick = function() {
+
+      modal.style.display = "none";
+
+    };
+
+
+    modal.onclick = function(e) {
+
+      if (e.target === modal) {
+
+        modal.style.display = "none";
+
+      }
+
+    };
+
+
+    /* فیلتر دسته بندی */
+
+    function filterImages(category, element) {
+
+      document.querySelectorAll(".category").forEach(item => {
+
+        item.classList.remove("active");
+
+      });
+
+      element.classList.add("active");
+
+
+      cards.forEach(card => {
+
+        if (
+          category === "all" ||
+          card.dataset.category === category
+        ) {
+
+          card.style.display = "block";
+
+        } else {
+
+          card.style.display = "none";
+
+        }
+
+      });
+
     }
-  });
-}
-</script>
-  function searchMovies() {
-  const searchText = document.getElementById("searchInput").value.toLowerCase();
-  const movies = document.querySelectorAll(".movie");
 
-  movies.forEach(function(movie) {
-    const title = movie.querySelector("h3").textContent.toLowerCase();
 
-    if (title.includes(searchText)) {
-      movie.style.display = "block";
-    } else {
-      movie.style.display = "none";
+    /* جستجو */
+
+    function searchImages() {
+
+      const searchText =
+        document.getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+
+      cards.forEach(card => {
+
+        const title =
+          card.querySelector("img")
+          .alt
+          .toLowerCase();
+
+
+        if (title.includes(searchText)) {
+
+          card.style.display = "block";
+
+        } else {
+
+          card.style.display = "none";
+
+        }
+
+      });
+
     }
-  });
-}
-<div id="movieDetails" style="display:none; padding:30px; background:#15151b; text-align:center;">
-  <h2 id="movieTitle"></h2>
-  <p>یک فیلم جذاب و دیدنی 🎬</p>
-  <p>⭐ امتیاز: 8.5</p>
-  <p>🎭 ژانر: اکشن و ماجراجویی</p>
-  <button onclick="closeMovie()" style="padding:12px 25px; background:#00c896; border:0; border-radius:8px;">
-    بستن
-  </button>
-</div>
-<script>
-function showMovie(name) {
-  document.getElementById("movieTitle").textContent = name;
-  document.getElementById("movieDetails").style.display = "block";
-}
 
-function closeMovie() {
-  document.getElementById("movieDetails").style.display = "none";
-}
-</script>
+  </script>
+
 </body>
 </html>
