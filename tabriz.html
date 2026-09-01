@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +7,11 @@
   <title>گالری تصاویر تبریز | گالری شهرهای ایران</title>
 
   <meta name="description"
-    content="گالری تصاویر تبریز؛ مجموعه‌ای از تصاویر دیدنی، تاریخی، طبیعی و معماری شهر تبریز در گالری شهرهای ایران.">
+    content="گالری تصاویر تبریز؛ مجموعه‌ای از تصاویر دیدنی، تاریخی و طبیعی شهر تبریز در گالری شهرهای ایران.">
 
   <meta name="robots" content="index, follow">
 
   <style>
-
     * {
       box-sizing: border-box;
     }
@@ -25,9 +23,6 @@
       color: #222;
       line-height: 1.8;
     }
-
-
-    /* هدر */
 
     header {
       background: linear-gradient(135deg, #263238, #546e7a);
@@ -47,9 +42,6 @@
       font-size: 1.05rem;
     }
 
-
-    /* دکمه بازگشت */
-
     nav {
       margin-top: 22px;
     }
@@ -62,24 +54,13 @@
       padding: 10px 24px;
       border-radius: 30px;
       font-weight: bold;
-      transition: 0.3s;
     }
-
-    nav a:hover {
-      transform: scale(1.05);
-    }
-
-
-    /* محتوا */
 
     main {
       max-width: 1150px;
       margin: auto;
       padding: 40px 18px;
     }
-
-
-    /* معرفی */
 
     .intro {
       text-align: center;
@@ -97,82 +78,43 @@
       color: #555;
     }
 
-
-    /* گالری */
-
     .gallery {
       display: grid;
-      grid-template-columns:
-        repeat(auto-fit, minmax(250px, 1fr));
-
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
-
-
-    /* کارت */
 
     .photo {
       background: white;
       border-radius: 18px;
       overflow: hidden;
-
-      box-shadow:
-        0 5px 18px rgba(0,0,0,.10);
-
-      transition: 0.35s;
+      box-shadow: 0 5px 18px rgba(0,0,0,.10);
     }
-
-    .photo:hover {
-      transform: translateY(-7px);
-
-      box-shadow:
-        0 12px 30px rgba(0,0,0,.18);
-    }
-
-
-    /* تصویر */
 
     .photo img {
       width: 100%;
       height: 230px;
-
       object-fit: cover;
-
       display: block;
-
       background: #ddd;
     }
-
-
-    /* عنوان */
 
     .caption {
       padding: 15px;
       text-align: center;
-
       font-size: 1.05rem;
       font-weight: bold;
     }
 
-
-    /* فوتر */
-
     footer {
       background: #263238;
       color: #cfd8dc;
-
       text-align: center;
-
       padding: 30px 20px;
-
       margin-top: 30px;
     }
 
-
-    /* موبایل */
-
     @media (max-width: 600px) {
-
       header {
         padding: 45px 15px 35px;
       }
@@ -183,3 +125,103 @@
 
       main {
         padding: 30px 14px;
+      }
+
+      .photo img {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>گالری تصاویر تبریز</h1>
+
+    <p>دیدنی‌های تاریخی، طبیعی و زیبای شهر تبریز در قاب تصویر</p>
+
+    <nav>
+      <a href="index.html">بازگشت به گالری شهرها</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="intro">
+      <h2>تبریز</h2>
+
+      <p>
+        تبریز یکی از شهرهای تاریخی و مهم ایران است که با بازار تاریخی،
+        معماری ارزشمند، طبیعت زیبا و فرهنگ غنی شناخته می‌شود.
+        در این صفحه مجموعه‌ای از تصاویر دیدنی با حال‌وهوای شهر تبریز
+        و زیبایی‌های ایران را مشاهده می‌کنید.
+      </p>
+    </section>
+
+    <section class="gallery">
+
+      <article class="photo">
+        <img
+          src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1000&q=80"
+          alt="طبیعت زیبای ایران"
+          loading="lazy"
+        >
+        <div class="caption">طبیعت زیبای تبریز</div>
+      </article>
+
+      <article class="photo">
+        <img
+          src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80"
+          alt="کوهستان و طبیعت"
+          loading="lazy"
+        >
+        <div class="caption">کوهستان‌های دیدنی</div>
+      </article>
+
+      <article class="photo">
+        <img
+          src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1000&q=80"
+          alt="مناظر طبیعی"
+          loading="lazy"
+        >
+        <div class="caption">مناظر طبیعی ایران</div>
+      </article>
+
+      <article class="photo">
+        <img
+          src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1000&q=80"
+          alt="چشم انداز طبیعی"
+          loading="lazy"
+        >
+        <div class="caption">چشم‌انداز زیبا</div>
+      </article>
+
+      <article class="photo">
+        <img
+          src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1000&q=80"
+          alt="طبیعت سرسبز"
+          loading="lazy"
+        >
+        <div class="caption">طبیعت سرسبز</div>
+      </article>
+
+      <article class="photo">
+        <img
+          src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=80"
+          alt="دریاچه و کوهستان"
+          loading="lazy"
+        >
+        <div class="caption">منظره‌ای آرام و دیدنی</div>
+      </article>
+
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 گالری شهرهای ایران - تصاویر تبریز
+  </footer>
+
+</body>
+</html>
