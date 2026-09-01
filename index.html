@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>گالری شهرها | تصاویر زیبا از شهرهای ایران</title>
-  <meta name="description" content="گالری شهرها، مجموعه‌ای از تصاویر زیبا و دیدنی شهرهای ایران.">
-<meta name="robots" content="index, follow">
-<meta name="author" content="گالری شهرها">
+  <title>گالری شهرهای ایران | تصاویر شهرهای زیبای ایران</title>
+
+  <meta name="description"
+    content="گالری تصاویر زیبا از شهرهای ایران؛ تهران، مشهد، اصفهان، شیراز، تبریز، رشت، کیش و شهرهای دیگر ایران.">
+
+  <meta name="robots" content="index, follow">
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -22,21 +26,24 @@
       color: #222;
     }
 
+
     /* هدر */
+
     header {
       background: #111827;
       color: white;
       padding: 18px 7%;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       gap: 20px;
     }
 
     .logo {
       font-size: 24px;
       font-weight: bold;
-      white-space: nowrap;
     }
 
     .logo span {
@@ -51,32 +58,24 @@
     nav a {
       color: white;
       text-decoration: none;
-      transition: 0.3s;
     }
 
     nav a:hover {
       color: #a78bfa;
     }
 
-    .upload-btn {
-      background: #7c3aed;
-      color: white;
-      border: none;
-      padding: 10px 18px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 14px;
-    }
 
-    .upload-btn:hover {
-      background: #6d28d9;
-    }
+    /* بخش معرفی */
 
-    /* بخش اصلی */
     .hero {
-      min-height: 430px;
+
+      min-height: 400px;
+
       background:
-        linear-gradient(rgba(10, 15, 30, 0.72), rgba(10, 15, 30, 0.85)),
+        linear-gradient(
+          rgba(10,15,30,0.70),
+          rgba(10,15,30,0.88)
+        ),
         url("https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=80");
 
       background-size: cover;
@@ -84,174 +83,198 @@
 
       display: flex;
       flex-direction: column;
+
       justify-content: center;
       align-items: center;
 
       text-align: center;
+
       color: white;
+
       padding: 40px 20px;
     }
 
     .hero h1 {
       font-size: 42px;
-      margin-bottom: 15px;
+      margin-bottom: 18px;
     }
 
     .hero p {
-      font-size: 17px;
-      margin-bottom: 30px;
+      font-size: 18px;
       color: #ddd;
+      max-width: 700px;
+      line-height: 2;
     }
 
+
     /* جستجو */
+
     .search-container {
       width: 100%;
       max-width: 650px;
+      margin-top: 30px;
     }
 
     .search-box {
+
       width: 100%;
+
       padding: 18px 25px;
+
       border: none;
+
       border-radius: 40px;
+
       font-size: 16px;
+
       outline: none;
     }
 
-    /* دسته بندی */
-    .categories {
-      display: flex;
-      gap: 10px;
-      margin-top: 25px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .category {
-      padding: 10px 18px;
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 25px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .category:hover,
-    .category.active {
-      background: #7c3aed;
-    }
 
     /* محتوا */
+
     .container {
+
       width: 90%;
       max-width: 1200px;
-      margin: 50px auto;
+
+      margin: 55px auto;
     }
 
     .section-title {
-      font-size: 26px;
-      margin-bottom: 25px;
-      border-right: 4px solid #7c3aed;
-      padding-right: 12px;
+
+      font-size: 28px;
+
+      margin-bottom: 30px;
+
+      border-right: 5px solid #7c3aed;
+
+      padding-right: 15px;
     }
 
-    /* گالری */
-    .gallery {
-      columns: 3 280px;
-      column-gap: 18px;
+
+    /* کارت شهرها */
+
+    .cities-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(240px, 1fr));
+
+      gap: 25px;
     }
 
-    .photo-card {
+
+    .city-card {
+
       position: relative;
-      margin-bottom: 18px;
-      break-inside: avoid;
+
+      height: 280px;
+
       overflow: hidden;
-      border-radius: 15px;
-      cursor: pointer;
-      background: #ddd;
-    }
 
-    .photo-card img {
-      width: 100%;
-      display: block;
-      transition: 0.4s;
-    }
+      border-radius: 18px;
 
-    .photo-card:hover img {
-      transform: scale(1.08);
-    }
+      text-decoration: none;
 
-    .photo-info {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-
-      padding: 40px 15px 15px;
-
-      background: linear-gradient(transparent, rgba(0,0,0,0.85));
       color: white;
 
-      opacity: 0;
-      transition: 0.3s;
+      box-shadow:
+        0 8px 25px rgba(0,0,0,0.12);
+
+      transition: 0.35s;
+
+      background: #333;
     }
 
-    .photo-card:hover .photo-info {
-      opacity: 1;
+
+    .city-card:hover {
+
+      transform:
+        translateY(-8px);
+
+      box-shadow:
+        0 15px 35px rgba(0,0,0,0.22);
     }
 
-    .photo-info h3 {
-      font-size: 16px;
-      margin-bottom: 5px;
+
+    .city-card img {
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+      transition: 0.5s;
     }
 
-    .photo-info span {
-      font-size: 13px;
+
+    .city-card:hover img {
+
+      transform: scale(1.10);
+    }
+
+
+    .city-info {
+
+      position: absolute;
+
+      bottom: 0;
+
+      left: 0;
+
+      right: 0;
+
+      padding: 70px 20px 20px;
+
+      background:
+        linear-gradient(
+          transparent,
+          rgba(0,0,0,0.90)
+        );
+    }
+
+
+    .city-info h2 {
+
+      font-size: 25px;
+
+      margin-bottom: 8px;
+    }
+
+
+    .city-info p {
+
+      font-size: 14px;
+
       color: #ddd;
     }
 
-    /* مودال نمایش عکس */
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.92);
-      z-index: 1000;
-
-      justify-content: center;
-      align-items: center;
-      padding: 30px;
-    }
-
-    .modal img {
-      max-width: 90%;
-      max-height: 85vh;
-      border-radius: 12px;
-    }
-
-    .close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      color: white;
-      font-size: 40px;
-      cursor: pointer;
-    }
 
     /* فوتر */
+
     footer {
+
       background: #111827;
+
       color: #aaa;
+
       text-align: center;
+
       padding: 30px;
-      margin-top: 50px;
+
+      margin-top: 60px;
     }
 
+
     /* موبایل */
+
     @media (max-width: 700px) {
 
       header {
-        padding: 15px 5%;
+        padding: 16px 5%;
       }
 
       nav {
@@ -259,339 +282,438 @@
       }
 
       .logo {
-        font-size: 19px;
-      }
-
-      .upload-btn {
-        padding: 9px 12px;
+        font-size: 20px;
       }
 
       .hero {
-        min-height: 400px;
+        min-height: 360px;
       }
 
       .hero h1 {
-        font-size: 29px;
+        font-size: 30px;
       }
 
       .hero p {
         font-size: 15px;
       }
 
-      .gallery {
-        columns: 2 150px;
-        column-gap: 10px;
+      .cities-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
       }
 
-      .photo-card {
-        margin-bottom: 10px;
+      .city-card {
+        height: 220px;
       }
+
+      .city-info h2 {
+        font-size: 20px;
+      }
+
+      .city-info p {
+        font-size: 12px;
+      }
+
     }
 
   </style>
+
 </head>
+
 
 <body>
 
+
   <!-- هدر -->
+
   <header>
 
     <div class="logo">
-      📷 Photo<span>Gallery</span>
+      🇮🇷 گالری <span>شهرها</span>
     </div>
 
     <nav>
-      <a href="#">خانه</a>
-      <a href="#gallery">گالری</a>
-      <a href="#categories">دسته‌بندی‌ها</a>
-      <a href="#about">درباره ما</a>
-    </nav>
 
-    <button class="upload-btn">
-      ⬆ آپلود عکس
-    </button>
+      <a href="index.html">خانه</a>
+
+      <a href="#cities">شهرها</a>
+
+      <a href="#about">درباره ما</a>
+
+    </nav>
 
   </header>
 
 
-  <!-- بخش معرفی -->
+
+  <!-- معرفی -->
+
   <section class="hero">
 
-    <h1>دنیای خود را از دریچه دوربین ببینید</h1>
+    <h1>
+      تصاویر زیبای شهرهای ایران
+    </h1>
 
     <p>
-      هزاران تصویر زیبا را کشف کنید و از دنیای عکاسی الهام بگیرید
+      سفر تصویری به شهرهای زیبای ایران؛
+      عکس‌هایی دیدنی از طبیعت، معماری، خیابان‌ها و جاذبه‌های شهرهای ایران
     </p>
 
 
     <!-- جستجو -->
+
     <div class="search-container">
+
       <input
         type="text"
         id="searchInput"
         class="search-box"
-        placeholder="🔍 جستجوی عکس..."
-        onkeyup="searchImages()"
+        placeholder="🔍 جستجوی شهر..."
+        onkeyup="searchCities()"
       >
-    </div>
-
-
-    <!-- دسته بندی -->
-    <div class="categories" id="categories">
-
-      <div class="category active" onclick="filterImages('all', this)">
-        همه
-      </div>
-
-      <div class="category" onclick="filterImages('nature', this)">
-        🌿 طبیعت
-      </div>
-
-      <div class="category" onclick="filterImages('city', this)">
-        🏙 شهر
-      </div>
-
-      <div class="category" onclick="filterImages('car', this)">
-        🚗 ماشین
-      </div>
-
-      <div class="category" onclick="filterImages('animal', this)">
-        🐾 حیوانات
-      </div>
 
     </div>
 
   </section>
 
 
-  <!-- گالری -->
-  <main class="container" id="gallery">
 
-    <h2 class="section-title">جدیدترین عکس‌ها</h2>
+  <!-- شهرها -->
 
-    <div class="gallery">
+  <main
+    class="container"
+    id="cities"
+  >
+
+    <h2 class="section-title">
+      شهرهای ایران
+    </h2>
 
 
-      <div class="photo-card" data-category="nature">
+    <div class="cities-grid">
+
+
+      <!-- تهران -->
+
+      <a
+        href="tehran.html"
+        class="city-card"
+        data-city="تهران"
+      >
+
         <img
-          src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=700&q=80"
-          alt="طبیعت و کوهستان">
+          src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=800&q=80"
+          alt="شهر تهران"
+        >
 
-        <div class="photo-info">
-          <h3>طبیعت و کوهستان</h3>
-          <span>❤️ 245 لایک</span>
+        <div class="city-info">
+
+          <h2>🏙 تهران</h2>
+
+          <p>
+            پایتخت ایران
+          </p>
+
         </div>
-      </div>
+
+      </a>
 
 
-      <div class="photo-card" data-category="city">
+
+      <!-- مشهد -->
+
+      <a
+        href="mashhad.html"
+        class="city-card"
+        data-city="مشهد"
+      >
+
         <img
-          src="https://images.unsplash.com/photo-1444723121867-7a241cacace9?auto=format&fit=crop&w=700&q=80"
-          alt="شهر مدرن">
+          src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80"
+          alt="شهر مشهد"
+        >
 
-        <div class="photo-info">
-          <h3>شهر مدرن</h3>
-          <span>❤️ 180 لایک</span>
+        <div class="city-info">
+
+          <h2>🕌 مشهد</h2>
+
+          <p>
+            شهر زیارتی ایران
+          </p>
+
         </div>
-      </div>
+
+      </a>
 
 
-      <div class="photo-card" data-category="car">
+
+      <!-- اصفهان -->
+
+      <a
+        href="isfahan.html"
+        class="city-card"
+        data-city="اصفهان"
+      >
+
         <img
-          src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=700&q=80"
-          alt="ماشین اسپرت">
+          src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80"
+          alt="شهر اصفهان"
+        >
 
-        <div class="photo-info">
-          <h3>ماشین اسپرت</h3>
-          <span>❤️ 320 لایک</span>
+        <div class="city-info">
+
+          <h2>🕌 اصفهان</h2>
+
+          <p>
+            نصف جهان
+          </p>
+
         </div>
-      </div>
+
+      </a>
 
 
-      <div class="photo-card" data-category="animal">
+
+      <!-- شیراز -->
+
+      <a
+        href="shiraz.html"
+        class="city-card"
+        data-city="شیراز"
+      >
+
         <img
-          src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=700&q=80"
-          alt="حیوانات وحشی">
+          src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=800&q=80"
+          alt="شهر شیراز"
+        >
 
-        <div class="photo-info">
-          <h3>حیوانات وحشی</h3>
-          <span>❤️ 410 لایک</span>
+        <div class="city-info">
+
+          <h2>🌸 شیراز</h2>
+
+          <p>
+            شهر شعر و ادب
+          </p>
+
         </div>
-      </div>
+
+      </a>
 
 
-      <div class="photo-card" data-category="nature">
+
+      <!-- تبریز -->
+
+      <a
+        href="tabriz.html"
+        class="city-card"
+        data-city="تبریز"
+      >
+
         <img
-          src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=700&q=80"
-          alt="کوهستان زیبا">
+          src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=800&q=80"
+          alt="شهر تبریز"
+        >
 
-        <div class="photo-info">
-          <h3>کوهستان زیبا</h3>
-          <span>❤️ 560 لایک</span>
+        <div class="city-info">
+
+          <h2>🏛 تبریز</h2>
+
+          <p>
+            شهر تاریخی ایران
+          </p>
+
         </div>
-      </div>
+
+      </a>
 
 
-      <div class="photo-card" data-category="city">
+
+      <!-- رشت -->
+
+      <a
+        href="rasht.html"
+        class="city-card"
+        data-city="رشت"
+      >
+
         <img
-          src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=700&q=80"
-          alt="خیابان شهر">
+          src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80"
+          alt="شهر رشت"
+        >
 
-        <div class="photo-info">
-          <h3>خیابان شهر</h3>
-          <span>❤️ 220 لایک</span>
+        <div class="city-info">
+
+          <h2>🌿 رشت</h2>
+
+          <p>
+            شهر باران
+          </p>
+
         </div>
-      </div>
+
+      </a>
 
 
-      <div class="photo-card" data-category="animal">
+
+      <!-- کیش -->
+
+      <a
+        href="kish.html"
+        class="city-card"
+        data-city="کیش"
+      >
+
         <img
-          src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=700&q=80"
-          alt="سگ دوست داشتنی">
+          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+          alt="جزیره کیش"
+        >
 
-        <div class="photo-info">
-          <h3>دوست کوچک</h3>
-          <span>❤️ 370 لایک</span>
+        <div class="city-info">
+
+          <h2>🌊 کیش</h2>
+
+          <p>
+            جزیره زیبای خلیج فارس
+          </p>
+
         </div>
-      </div>
+
+      </a>
 
 
-      <div class="photo-card" data-category="nature">
+
+      <!-- یزد -->
+
+      <a
+        href="yazd.html"
+        class="city-card"
+        data-city="یزد"
+      >
+
         <img
-          src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=700&q=80"
-          alt="دریاچه و طبیعت">
+          src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80"
+          alt="شهر یزد"
+        >
 
-        <div class="photo-info">
-          <h3>دریاچه آرام</h3>
-          <span>❤️ 620 لایک</span>
+        <div class="city-info">
+
+          <h2>🏜 یزد</h2>
+
+          <p>
+            شهر بادگیرها
+          </p>
+
         </div>
-      </div>
+
+      </a>
+
+
+
+      <!-- بندرعباس -->
+
+      <a
+        href="bandarabbas.html"
+        class="city-card"
+        data-city="بندرعباس"
+      >
+
+        <img
+          src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=800&q=80"
+          alt="بندرعباس"
+        >
+
+        <div class="city-info">
+
+          <h2>🌴 بندرعباس</h2>
+
+          <p>
+            بندر زیبای جنوب ایران
+          </p>
+
+        </div>
+
+      </a>
+
+
+
+      <!-- کرمان -->
+
+      <a
+        href="kerman.html"
+        class="city-card"
+        data-city="کرمان"
+      >
+
+        <img
+          src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=80"
+          alt="شهر کرمان"
+        >
+
+        <div class="city-info">
+
+          <h2>🏔 کرمان</h2>
+
+          <p>
+            شهر تاریخی کویر
+          </p>
+
+        </div>
+
+      </a>
 
 
     </div>
+
   </main>
 
 
-  <!-- نمایش بزرگ عکس -->
-  <div class="modal" id="modal">
-
-    <span class="close">&times;</span>
-
-    <img id="modal-img" src="" alt="">
-
-  </div>
-
 
   <!-- فوتر -->
+
   <footer id="about">
-    © 2026 PhotoGallery | تمامی حقوق محفوظ است
+
+    © 2026 گالری شهرهای ایران
+    <br><br>
+    تمامی حقوق محفوظ است
+
   </footer>
+
 
 
   <script>
 
-    const cards = document.querySelectorAll(".photo-card");
-
-    const modal = document.getElementById("modal");
-
-    const modalImg = document.getElementById("modal-img");
-
-
-    /* باز کردن عکس */
-
-    cards.forEach(card => {
-
-      card.addEventListener("click", () => {
-
-        const image = card.querySelector("img");
-
-        modal.style.display = "flex";
-
-        modalImg.src = image.src;
-
-      });
-
-    });
-
-
-    /* بستن عکس */
-
-    document.querySelector(".close").onclick = function() {
-
-      modal.style.display = "none";
-
-    };
-
-
-    modal.onclick = function(e) {
-
-      if (e.target === modal) {
-
-        modal.style.display = "none";
-
-      }
-
-    };
-
-
-    /* فیلتر دسته بندی */
-
-    function filterImages(category, element) {
-
-      document.querySelectorAll(".category").forEach(item => {
-
-        item.classList.remove("active");
-
-      });
-
-      element.classList.add("active");
-
-
-      cards.forEach(card => {
-
-        if (
-          category === "all" ||
-          card.dataset.category === category
-        ) {
-
-          card.style.display = "block";
-
-        } else {
-
-          card.style.display = "none";
-
-        }
-
-      });
-
-    }
-
-
-    /* جستجو */
-
-    function searchImages() {
+    function searchCities() {
 
       const searchText =
-        document.getElementById("searchInput")
-        .value
-        .toLowerCase();
-
-
-      cards.forEach(card => {
-
-        const title =
-          card.querySelector("img")
-          .alt
+        document
+          .getElementById("searchInput")
+          .value
+          .trim()
           .toLowerCase();
 
 
-        if (title.includes(searchText)) {
+      const cities =
+        document.querySelectorAll(".city-card");
 
-          card.style.display = "block";
+
+      cities.forEach(city => {
+
+        const cityName =
+          city
+            .dataset
+            .city
+            .toLowerCase();
+
+
+        if (
+          cityName.includes(searchText)
+        ) {
+
+          city.style.display = "block";
 
         } else {
 
-          card.style.display = "none";
+          city.style.display = "none";
 
         }
 
@@ -601,5 +723,7 @@
 
   </script>
 
+
 </body>
+
 </html>
