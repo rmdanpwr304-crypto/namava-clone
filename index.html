@@ -122,8 +122,8 @@
     <div class="logo">فیلم‌خانه 🎬</div>
   </header>
 <div class="search-box">
-  <input type="text" placeholder="نام فیلم یا سریال را جستجو کنید...">
-  <button>جستجو 🔍</button>
+  <input type="text" id="searchInput" placeholder="نام فیلم یا سریال را جستجو کنید...">
+  <button onclick="searchMovies()">جستجو 🔍</button>
 </div>
   <section class="hero">
     <h1>دنیای فیلم و سریال</h1>
@@ -166,6 +166,21 @@
     </div>
 
   </section>
+<script>
+function searchMovies() {
+  const searchText = document.getElementById("searchInput").value.toLowerCase();
+  const movies = document.querySelectorAll(".movie");
 
+  movies.forEach(function(movie) {
+    const title = movie.querySelector("h3").textContent.toLowerCase();
+
+    if (title.includes(searchText)) {
+      movie.style.display = "block";
+    } else {
+      movie.style.display = "none";
+    }
+  });
+}
+</script>
 </body>
 </html>
