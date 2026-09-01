@@ -182,5 +182,19 @@ function searchMovies() {
   });
 }
 </script>
+  function searchMovies() {
+  const searchText = document.getElementById("searchInput").value.toLowerCase();
+  const movies = document.querySelectorAll(".movie");
+
+  movies.forEach(function(movie) {
+    const title = movie.querySelector("h3").textContent.toLowerCase();
+
+    if (title.includes(searchText)) {
+      movie.style.display = "block";
+    } else {
+      movie.style.display = "none";
+    }
+  });
+}
 </body>
 </html>
