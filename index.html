@@ -133,7 +133,7 @@
 
   <section class="movies" id="movies">
 
-    <div class="movie">
+    <div class="movie" onclick="showMovie('سفر آخر')">
       <div class="poster">
   <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=500&q=80" alt="پوستر فیلم">
       </div>
@@ -196,5 +196,24 @@ function searchMovies() {
     }
   });
 }
+<div id="movieDetails" style="display:none; padding:30px; background:#15151b; text-align:center;">
+  <h2 id="movieTitle"></h2>
+  <p>یک فیلم جذاب و دیدنی 🎬</p>
+  <p>⭐ امتیاز: 8.5</p>
+  <p>🎭 ژانر: اکشن و ماجراجویی</p>
+  <button onclick="closeMovie()" style="padding:12px 25px; background:#00c896; border:0; border-radius:8px;">
+    بستن
+  </button>
+</div>
+<script>
+function showMovie(name) {
+  document.getElementById("movieTitle").textContent = name;
+  document.getElementById("movieDetails").style.display = "block";
+}
+
+function closeMovie() {
+  document.getElementById("movieDetails").style.display = "none";
+}
+</script>
 </body>
 </html>
