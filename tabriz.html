@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>گالری تصاویر تبریز | گالری شهرها</title>
+  <title>گالری تصاویر تبریز | گالری شهرهای ایران</title>
 
   <meta name="description"
-    content="گالری تصاویر شهر تبریز؛ مجموعه‌ای از تصاویر دیدنی، تاریخی و زیبای تبریز در گالری شهرهای ایران.">
+    content="گالری تصاویر تبریز؛ مجموعه‌ای از تصاویر دیدنی، تاریخی، طبیعی و معماری شهر تبریز در گالری شهرهای ایران.">
 
   <meta name="robots" content="index, follow">
 
   <style>
+
     * {
       box-sizing: border-box;
     }
@@ -24,9 +26,12 @@
       line-height: 1.8;
     }
 
+
+    /* هدر */
+
     header {
-      background: linear-gradient(135deg, #263238, #607d8b);
-      color: #fff;
+      background: linear-gradient(135deg, #263238, #546e7a);
+      color: white;
       text-align: center;
       padding: 55px 20px 45px;
     }
@@ -37,187 +42,144 @@
     }
 
     header p {
-      margin: 10px 0 0;
-      color: #e0e7ea;
+      margin: 12px 0 0;
+      color: #e4eaed;
+      font-size: 1.05rem;
     }
 
+
+    /* دکمه بازگشت */
+
     nav {
-      margin-top: 20px;
+      margin-top: 22px;
     }
 
     nav a {
       display: inline-block;
-      background: #fff;
+      background: white;
       color: #37474f;
       text-decoration: none;
-      padding: 9px 22px;
-      border-radius: 25px;
+      padding: 10px 24px;
+      border-radius: 30px;
       font-weight: bold;
-    }
-
-    main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 35px 18px;
-    }
-
-    .intro {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 35px;
-    }
-
-    .intro h2 {
-      margin-bottom: 8px;
-      color: #37474f;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 18px;
-    }
-
-    .photo {
-      background: #fff;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,.08);
       transition: 0.3s;
     }
 
-    .photo:hover {
-      transform: translateY(-5px);
+    nav a:hover {
+      transform: scale(1.05);
     }
+
+
+    /* محتوا */
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 40px 18px;
+    }
+
+
+    /* معرفی */
+
+    .intro {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 40px;
+    }
+
+    .intro h2 {
+      margin-bottom: 10px;
+      color: #37474f;
+      font-size: 2rem;
+    }
+
+    .intro p {
+      color: #555;
+    }
+
+
+    /* گالری */
+
+    .gallery {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+      gap: 20px;
+    }
+
+
+    /* کارت */
+
+    .photo {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+
+      box-shadow:
+        0 5px 18px rgba(0,0,0,.10);
+
+      transition: 0.35s;
+    }
+
+    .photo:hover {
+      transform: translateY(-7px);
+
+      box-shadow:
+        0 12px 30px rgba(0,0,0,.18);
+    }
+
+
+    /* تصویر */
 
     .photo img {
       width: 100%;
-      height: 210px;
+      height: 230px;
+
       object-fit: cover;
+
       display: block;
+
+      background: #ddd;
     }
+
+
+    /* عنوان */
 
     .caption {
-      padding: 12px 15px;
+      padding: 15px;
       text-align: center;
+
       font-size: 1.05rem;
+      font-weight: bold;
     }
+
+
+    /* فوتر */
 
     footer {
+      background: #263238;
+      color: #cfd8dc;
+
       text-align: center;
-      padding: 28px;
-      color: #666;
+
+      padding: 30px 20px;
+
+      margin-top: 30px;
     }
 
-    @media(max-width:600px) {
+
+    /* موبایل */
+
+    @media (max-width: 600px) {
+
+      header {
+        padding: 45px 15px 35px;
+      }
+
       header h1 {
         font-size: 1.7rem;
       }
 
       main {
-        padding: 25px 14px;
-      }
-
-      .gallery {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <header>
-    <h1>گالری تصاویر تبریز</h1>
-
-    <p>دیدنی‌های تاریخی، طبیعی و زیبای شهر تبریز در قاب تصویر</p>
-
-    <nav>
-      <a href="index.html">بازگشت به گالری شهرها</a>
-    </nav>
-  </header>
-
-
-  <main>
-
-    <section class="intro">
-
-      <h2>تبریز</h2>
-
-      <p>
-        تبریز یکی از شهرهای تاریخی و مهم ایران است.
-        این شهر با بازار تاریخی، معماری زیبا، طبیعت دیدنی
-        و فرهنگ غنی آذربایجان، یکی از مقاصد جذاب گردشگری ایران محسوب می‌شود.
-      </p>
-
-    </section>
-
-
-    <section class="gallery">
-
-
-      <article class="photo">
-        <img
-          src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1000&q=80"
-          alt="معماری تاریخی ایران"
-        >
-        <div class="caption">معماری تاریخی</div>
-      </article>
-
-
-      <article class="photo">
-        <img
-          src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1000&q=80"
-          alt="بنای تاریخی"
-        >
-        <div class="caption">آثار تاریخی</div>
-      </article>
-
-
-      <article class="photo">
-        <img
-          src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1000&q=80"
-          alt="طبیعت ایران"
-        >
-        <div class="caption">طبیعت زیبای آذربایجان</div>
-      </article>
-
-
-      <article class="photo">
-        <img
-          src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1000&q=80"
-          alt="منظره طبیعی"
-        >
-        <div class="caption">چشم‌انداز طبیعی</div>
-      </article>
-
-
-      <article class="photo">
-        <img
-          src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1000&q=80"
-          alt="نمای شهری"
-        >
-        <div class="caption">نمایی دیدنی از شهر</div>
-      </article>
-
-
-      <article class="photo">
-        <img
-          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80"
-          alt="منظره زیبا"
-        >
-        <div class="caption">مناظر دیدنی ایران</div>
-      </article>
-
-
-    </section>
-
-  </main>
-
-
-  <footer>
-    © 2026 گالری شهرهای ایران - تصاویر تبریز
-  </footer>
-
-</body>
-  </html>
+        padding: 30px 14px;
