@@ -1,99 +1,123 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>گالری اهواز | گالری شهرها</title>
+  <title>عکس‌های اهواز | گالری شهرها</title>
+
+  <meta name="description" content="گالری تصاویر زیبای شهر اهواز">
 
   <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Tahoma, Arial, sans-serif;
       background: #111;
       color: white;
       text-align: center;
+      overflow-x: hidden;
     }
 
     header {
       background: #222;
-      padding: 25px;
+      padding: 25px 15px;
     }
 
     h1 {
+      margin: 0;
       font-size: 28px;
     }
 
     .back {
       display: inline-block;
+      margin-top: 18px;
       padding: 12px 20px;
-      background: #555;
+      background: #444;
       color: white;
       text-decoration: none;
+      border-radius: 8px;
+    }
+
+    .gallery {
+      width: 100%;
+      max-width: 1000px;
+      margin: auto;
+      padding: 15px;
+
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
       border-radius: 10px;
     }
 
-    
-    .gallery {
-  padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-} 
+    @media (min-width: 700px) {
+      .gallery {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
 
-    .test-box {
-      background: red;
-      color: white;
-      padding: 50px 20px;
-      margin: 20px auto;
-      max-width: 500px;
-      font-size: 24px;
-      border-radius: 15px;
+      .gallery img {
+        height: 220px;
+      }
     }
+
   </style>
+
 </head>
+
 
 <body>
 
   <header>
+
     <h1>عکس‌های اهواز</h1>
 
-    <a href="index.html" class="back">
+    <a class="back" href="index.html">
       بازگشت به صفحه اصلی
     </a>
+
   </header>
+
 
   <div class="gallery">
 
-  <img
-    src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Ahwaz_white_bridge.jpg"
-    alt="پل سفید اهواز"
-  >
-<img
-  src="https://blog.flysepehran.com/wp-content/uploads/2025/10/karun-river-1.jpg"
-  alt="نمای رودخانه کارون و پل‌های اهواز"
-<img
-  src="https://commons.wikimedia.org/wiki/Special:FilePath/Ahvaz%20White%20Bridge1.jpg"
-  alt="پل سفید و رود کارون اهواز"
->
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Ahwaz_white_bridge.jpg"
+      alt="پل سفید اهواز"
+    >
 
-<img
-  src="https://commons.wikimedia.org/wiki/Special:FilePath/Ahvaz%20White%20Bridge2.jpg"
-  alt="نمای پل سفید اهواز"
->
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Ahvaz_city.jpg/1280px-Ahvaz_city.jpg"
+      alt="نمای شهر اهواز"
+    >
 
-<img
-  src="https://commons.wikimedia.org/wiki/Special:FilePath/Iran%20-%20Khuzestan%20-%20Ahvaz%20-%20White%20Bridge%20%26%20Karoon%20River.jpg"
-  alt="رود کارون و پل سفید اهواز"
->
+    <img
+      src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1000&q=80"
+      alt="منظره اهواز"
+    >
 
-<img
-  src="https://commons.wikimedia.org/wiki/Special:FilePath/Iran%20-%20Ahvaz%20White%20bridge%20%5E%20Karoon%20-%20panoramio.jpg"
-  alt="نمای رود کارون در اهواز"
->
-  >
+    <img
+      src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1000&q=80"
+      alt="نمای شهری"
+    >
+
   </div>
-  </div>
+
 
 </body>
+
 </html>
