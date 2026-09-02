@@ -63,6 +63,41 @@
       object-fit: cover;
       display: block;
       border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    /* پنجره بزرگ‌نمایی */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .lightbox img {
+      max-width: 95%;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      color: white;
+      font-size: 42px;
+      cursor: pointer;
+      z-index: 10000;
     }
 
     @media (min-width: 700px) {
@@ -95,27 +130,61 @@
 
   <div class="gallery">
 
-  <img
-  src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Ahwaz_white_bridge.jpg"
-  alt="پل سفید اهواز در شب"
->
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Ahwaz_white_bridge.jpg"
+      alt="پل سفید اهواز در شب"
+    >
 
-<img
-  src="https://theotheriran.com/wp-content/uploads/2015/06/khuzestan-iran-ahvaz-2nd-bridge-white-bridge-or-suspension-bridge-pol-e-sefid-2.jpg?w=800"
-  alt="پل سفید و رود کارون اهواز"
->
+    <img
+      src="https://theotheriran.com/wp-content/uploads/2015/06/khuzestan-iran-ahvaz-2nd-bridge-white-bridge-or-suspension-bridge-pol-e-sefid-2.jpg?w=800"
+      alt="پل سفید و رود کارون اهواز"
+    >
 
-<img
-  src="https://media.parstoday.ir/image/4c3o326e348d522cly2_800C450.jpg"
-  alt="نمای شب اهواز و رود کارون"
->
+    <img
+      src="https://media.parstoday.ir/image/4c3o326e348d522cly2_800C450.jpg"
+      alt="نمای شب اهواز و رود کارون"
+    >
 
-<img
-  src="https://media.parstoday.ir/image/4c3o73c8aeac3c2cly3_800C450.jpg"
-  alt="پل اهواز در شب"
->
+    <img
+      src="https://media.parstoday.ir/image/4c3o73c8aeac3c2cly3_800C450.jpg"
+      alt="پل اهواز در شب"
+    >
 
   </div>
+
+
+  <!-- پنجره بزرگ‌نمایی -->
+  <div class="lightbox" id="lightbox">
+    <span class="close">&times;</span>
+    <img id="lightbox-img" src="" alt="عکس بزرگ">
+  </div>
+
+
+  <script>
+
+    const images = document.querySelectorAll(".gallery img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.querySelector(".close");
+
+    images.forEach(function(img) {
+      img.addEventListener("click", function() {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+      });
+    });
+
+    closeBtn.addEventListener("click", function() {
+      lightbox.style.display = "none";
+    });
+
+    lightbox.addEventListener("click", function(e) {
+      if (e.target === lightbox) {
+        lightbox.style.display = "none";
+      }
+    });
+
+  </script>
 
 
 </body>
