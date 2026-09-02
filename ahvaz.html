@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>عکس دخترهای اهواز | گالری شهرها</title>
 
-  <meta name="description" content="گالری عکس دخترهای اهواز در سایت گالری شهرها. مجموعه تصاویر شهر اهواز.">
+  <meta
+    name="description"
+    content="گالری تصاویر اهواز در سایت گالری شهرها."
+  >
 
   <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Tahoma, Arial, sans-serif;
@@ -19,7 +29,7 @@
 
     header {
       background: #222;
-      padding: 20px;
+      padding: 25px 15px;
     }
 
     h1 {
@@ -29,47 +39,66 @@
 
     .back {
       display: inline-block;
-      margin-top: 15px;
-      padding: 10px 18px;
+      margin-top: 18px;
+      padding: 12px 22px;
       background: #444;
       color: white;
       text-decoration: none;
       border-radius: 8px;
     }
 
+    .back:hover {
+      background: #666;
+    }
+
     .gallery {
-      padding: 20px;
+      padding: 25px;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
+      gap: 18px;
+      max-width: 1200px;
+      margin: auto;
     }
 
     .gallery img {
       width: 100%;
       height: 300px;
       object-fit: cover;
-      border-radius: 10px;
+      border-radius: 12px;
+      display: block;
     }
+
   </style>
+
 </head>
+
 
 <body>
 
-<header>
-  <h1>عکس دخترهای اهواز</h1>
-  <a class="back" href="index.html">بازگشت به صفحه اصلی</a>
-</header>
+  <header>
 
-<div class="gallery">
-<div class="gallery">
+    <h1>عکس‌های اهواز</h1>
 
-  <img
-    src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80"
-    alt="منظره اهواز"
-  >
+    <a
+      class="back"
+      href="index.html"
+    >
+      بازگشت به صفحه اصلی
+    </a>
 
-</div>
-</div>
+  </header>
+
+
+  <div class="gallery">
+
+    <img
+      src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80"
+      alt="تصویر اهواز"
+    >
+
+  </div>
+
 
 </body>
+
 </html>
