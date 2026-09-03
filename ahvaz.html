@@ -1,195 +1,210 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عکس‌های اهواز | گالری شهرها</title>
 
-  <title>عکس‌های اهواز | گالری شهرها</title>
+<meta name="description" content="گالری تصاویر زیبای شهر اهواز">
 
-  <meta name="description" content="گالری تصاویر زیبای شهر اهواز">
+<style>
 
-  <style>
+*{
+box-sizing:border-box;
+}
 
-    * {
-      box-sizing: border-box;
-    }
+body{
+margin:0;
+font-family:Tahoma,Arial,sans-serif;
+background:#111;
+color:white;
+text-align:center;
+}
 
-    body {
-      margin: 0;
-      font-family: Tahoma, Arial, sans-serif;
-      background: #111;
-      color: white;
-      text-align: center;
-      overflow-x: hidden;
-    }
+header{
+background:#222;
+padding:25px 15px;
+}
 
-    header {
-      background: #222;
-      padding: 25px 15px;
-    }
+h1{
+margin:0;
+font-size:28px;
+}
 
-    h1 {
-      margin: 0;
-      font-size: 28px;
-    }
+p{
+font-size:18px;
+line-height:2;
+}
 
-    .back {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 12px 20px;
-      background: #444;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-    }
+.back{
+display:inline-block;
+margin-top:15px;
+padding:12px 20px;
+background:#444;
+color:white;
+text-decoration:none;
+border-radius:8px;
+}
 
-    .gallery {
-      width: 100%;
-      max-width: 1000px;
-      margin: auto;
-      padding: 15px;
+.gallery{
+width:100%;
+max-width:1000px;
+margin:auto;
+padding:15px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
 
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
+.gallery img{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:10px;
+cursor:pointer;
+}
 
-    .gallery img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      display: block;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
+.lightbox{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.9);
+justify-content:center;
+align-items:center;
+padding:20px;
+}
 
-    .gallery img:hover {
-      transform: scale(1.03);
-    }
+.lightbox img{
+max-width:95%;
+max-height:90vh;
+}
 
-    /* پنجره بزرگ‌نمایی */
-    .lightbox {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.92);
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
+.close{
+position:absolute;
+top:15px;
+right:20px;
+font-size:40px;
+cursor:pointer;
+}
 
-    .lightbox img {
-      max-width: 95%;
-      max-height: 90vh;
-      object-fit: contain;
-      border-radius: 10px;
-    }
+@media(min-width:700px){
 
-    .close {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      color: white;
-      font-size: 42px;
-      cursor: pointer;
-      z-index: 10000;
-    }
+.gallery{
+grid-template-columns:repeat(3,1fr);
+}
 
-    @media (min-width: 700px) {
-      .gallery {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
+.gallery img{
+height:220px;
+}
 
-      .gallery img {
-        height: 220px;
-      }
-    }
+}
 
-  </style>
+</style>
 
 </head>
 
 
 <body>
 
-  <header>
 
-    <h1>عکس‌های اهواز</h1>
+<header>
+
+<h1>عکس‌های اهواز</h1>
+
 <p>
 اهواز، مرکز استان خوزستان، شهری زیبا در کنار رود کارون است.
-در این صفحه مجموعه‌ای از تصاویر دیدنی اهواز را مشاهده می‌کنید.
 </p>
-    <a class="back" href="index.html">
-      بازگشت به صفحه اصلی
-    </a>
 
-  </header>
+<a class="back" href="index.html">
+بازگشت به صفحه اصلی
+</a>
 
-
-  <div class="gallery">
-
-    <img
-      src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Ahwaz_white_bridge.jpg"
-      alt="پل سفید اهواز در شب"
-    >
-
-    <img
-      src="https://theotheriran.com/wp-content/uploads/2015/06/khuzestan-iran-ahvaz-2nd-bridge-white-bridge-or-suspension-bridge-pol-e-sefid-2.jpg?w=800"
-      alt="پل سفید و رود کارون اهواز"
-    >
-
-    <img
-      src="https://media.parstoday.ir/image/4c3o326e348d522cly2_800C450.jpg"
-      alt="نمای شب اهواز و رود کارون"
-    >
-
-    <img
-      src="https://media.parstoday.ir/image/4c3o73c8aeac3c2cly3_800C450.jpg"
-      alt="پل اهواز در شب"
-    >
-
-  </div>
+</header>
 
 
-  <!-- پنجره بزرگ‌نمایی -->
-  <div class="lightbox" id="lightbox">
-    <span class="close">&times;</span>
-    <img id="lightbox-img" src="" alt="عکس بزرگ">
-  </div>
+
+<div class="gallery">
 
 
-  <script>
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Ahwaz_white_bridge.jpg"
+alt="پل سفید اهواز">
 
-    const images = document.querySelectorAll(".gallery img");
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const closeBtn = document.querySelector(".close");
 
-    images.forEach(function(img) {
-      img.addEventListener("click", function() {
-        lightbox.style.display = "flex";
-        lightboxImg.src = img.src;
-      });
-    });
+<img src="https://theotheriran.com/wp-content/uploads/2015/06/khuzestan-iran-ahvaz-2nd-bridge-white-bridge-or-suspension-bridge-pol-e-sefid-2.jpg?w=800"
+alt="پل سفید و رود کارون">
 
-    closeBtn.addEventListener("click", function() {
-      lightbox.style.display = "none";
-    });
 
-    lightbox.addEventListener("click", function(e) {
-      if (e.target === lightbox) {
-        lightbox.style.display = "none";
-      }
-    });
+<img src="https://media.parstoday.ir/image/4c3o326e348d522cly2_800C450.jpg"
+alt="نمای شب اهواز">
 
-  </script>
+
+<img src="https://media.parstoday.ir/image/4c3o73c8aeac3c2cly3_800C450.jpg"
+alt="پل اهواز در شب">
+
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Ahwaz_white_bridge.jpg"
+alt="رود کارون اهواز">
+
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Ahwaz_white_bridge.jpg"
+alt="نمای شهر اهواز">
+
+
+</div>
+
+
+
+<div class="lightbox" id="lightbox">
+
+<span class="close">&times;</span>
+
+<img id="lightbox-img" src="" alt="عکس بزرگ">
+
+</div>
+
+
+
+<script>
+
+const images=document.querySelectorAll(".gallery img");
+const lightbox=document.getElementById("lightbox");
+const lightboxImg=document.getElementById("lightbox-img");
+const closeBtn=document.querySelector(".close");
+
+
+images.forEach(function(img){
+
+img.onclick=function(){
+
+lightbox.style.display="flex";
+lightboxImg.src=img.src;
+
+}
+
+});
+
+
+closeBtn.onclick=function(){
+
+lightbox.style.display="none";
+
+}
+
+
+lightbox.onclick=function(e){
+
+if(e.target===lightbox){
+
+lightbox.style.display="none";
+
+}
+
+}
+
+</script>
 
 
 </body>
-
 </html>
